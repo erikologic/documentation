@@ -111,16 +111,17 @@ CONTEXT:
 
     GIVEN Latife posts critical content about the Turkish president as a response to a thread under a bsky lexicon
     WHEN Lucy access that thread
-    THEN Lucy BSky requests the content to the CoCoMo proxied PDS endpoint
+    THEN Lucy BSky client requests the content to the CoCoMo proxied PDS endpoint
     AND CoCoMo understands the content is legal for Lucy jurisdiction
     AND CoCoMo will serve the content
     AND Lucy will see the content
 
     WHEN Ahmet access that thread
-    THEN Ahmet client requests the content to the CoCoMo proxied PDS endpoint
+    THEN Ahmet BSky client requests the content to the CoCoMo proxied PDS endpoint
     AND CoCoMo understands the content is illegal for Ahmet jurisdiction
-    AND CoCoMo will not serve the content
-    AND Ahmet will see a 403 error with an explanation
+    AND CoCoMo will return a 403 with an explanation
+    AND BSky will process that somehow
+    AND hopefully Ahmed experience is not broken
 
 ### SCENARIO: Rules are updated on CoCoMo
 
